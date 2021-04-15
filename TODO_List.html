@@ -32,10 +32,20 @@
 				</form>
 			</div>
 		</div>
+		<div class="row mb-3">
+			<div class="col-lg-8 mx-auto">
+				<span>{{ checkDone }}</span>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
 				<ul class="list-group">
-					<li v-for="todo in todos" class="list-group-item list-group-item-action" :class="{ 'list-group-item-dark': todo.done }" @click="clickItem(todo)">
+					<li
+						v-for="todo in todos"
+						:key="todo.id"
+						class="list-group-item list-group-item-action" 
+						:class="{ 'list-group-item-dark': todo.done }" 
+						@click="clickItem(todo)">
 						<div class="float-lg-left">
 							<input type="checkbox" v-model="todo.done" />
 							<span :class="{ done: todo.done }">{{ todo.title }}</span>
